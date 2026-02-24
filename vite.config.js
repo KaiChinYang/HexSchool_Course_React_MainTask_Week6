@@ -6,7 +6,7 @@ export default defineConfig({
   //開發中?已完成產品?
   base:
     process.env.NODE_ENV === "production"
-      ? "/HexSchool_Course_React_MainTask_Week5/"
+      ? "/HexSchool_Course_React_MainTask_Week6/"
       : "/",
   plugins: [react()],
 });
