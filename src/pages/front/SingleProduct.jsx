@@ -4,7 +4,7 @@ import api from "../../api/axiosInstance";
 
 export default function SingleProduct() {
   const { id } = useParams();
-  const [product, setProduct] = useState([]);
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
     const getSingleProduct = async () => {

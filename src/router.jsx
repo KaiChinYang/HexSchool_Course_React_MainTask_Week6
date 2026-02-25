@@ -5,6 +5,8 @@ import Products from "./pages/front/Products";
 import SingleProduct from "./pages/front/SingleProduct";
 import Cart from "./pages/front/Cart";
 import NotFound from "./pages/front/NotFound";
+import Checkout from "./pages/front/CheckOut";
+import LoginPage from "./pages/LoginPage";
 
 //路由表
 export const router = createHashRouter([
@@ -17,7 +19,7 @@ export const router = createHashRouter([
         element: <Home />,
       },
       {
-        path: "product",
+        path: "products",
         element: <Products />,
       },
       {
@@ -27,6 +29,14 @@ export const router = createHashRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "login",
+        element: <LoginPage />,
       },
     ],
   },

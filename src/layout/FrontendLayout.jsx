@@ -1,6 +1,5 @@
 import { Link, Outlet } from "react-router";
 
-
 export default function FrontendLayout() {
   return (
     <>
@@ -9,11 +8,17 @@ export default function FrontendLayout() {
           <Link className="nav-link h4" aria-current="page" to="/">
             首頁
           </Link>
-          <Link className="nav-link h4" to="/product">
+          <Link className="nav-link h4" to="/products">
             產品列表
           </Link>
           <Link className="nav-link h4" to="/cart">
             購物車
+          </Link>
+          <Link className="nav-link h4" to="/checkout">
+            結帳
+          </Link>
+          <Link className="nav-link h4" to="/login">
+            登入
           </Link>
         </nav>
       </header>

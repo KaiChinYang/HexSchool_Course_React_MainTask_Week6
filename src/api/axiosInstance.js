@@ -66,4 +66,7 @@ api.updateCart = (id, data) => api.put(`/api/${API_PATH}/cart/${id}`, { data });
 api.deleteCart = (id) => api.delete(`/api/${API_PATH}/cart/${id}`);
 //清空購物車API
 api.clearCarts = () => api.delete(`/api/${API_PATH}/carts`);
+//送出訂單API
+api.sendOrder = (data) => api.post(`/api/${API_PATH}/order`, { data });
+
 export default api;
