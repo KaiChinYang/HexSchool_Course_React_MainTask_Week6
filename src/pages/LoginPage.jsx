@@ -34,7 +34,7 @@ export default function LoginPage({ setIsAuth, getProducts }) {
       document.cookie = `PAPAYA_KG_TOKEN=${token};expires=${new Date(
         expired,
       )};`;
-      navigate('/products');
+      navigate('/admin');
       // setIsAuth(true);
       // getProducts();
     } catch (error) {

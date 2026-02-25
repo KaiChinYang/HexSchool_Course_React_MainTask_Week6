@@ -1,17 +1,39 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ProductsTable from "../components/ProductsTable";
 import ProductDetail from "../components/ProductDetail";
 import api from "../api/axiosInstance";
 
 export default function AdminPage({
-  products,
-  checkLogin,
-  pagination,
-  getProducts,
+  // products,
+  // checkLogin,
+  // pagination,
+  // getProducts,
 }) {
+  const [products, setProducts] = useState([]);
+  const [pagination, setPagination] = useState({});
   const [tempProduct, setTempProduct] = useState(null);
   const [tempImgUrl, setTempImgUrl] = useState(null);
 
+  const checkLogin = async (e) => {
+      try {
+        const res = await api.checkLogin();
+        console.log(res.data);
+        setIsAuth(true);
+        getProducts();
+      } catch (error) {
+        console.dir(error.response?.data.message);
+      }
+    };
+  const getProducts = async (page = 1) => {
+      try {
+        const res = await api.getProducts(page);
+        setProducts(res.data.products);
+        setPagination(res.data.pagination);
+      } catch (error) {
+        console.dir(error.response);
+        alert("取得產品列表失敗", error.response?.data.message);
+      }
+    };
   const updateProducts = async (id, product, type) => {
     if (!product) {
       throw new Error("product is null");
@@ -66,12 +88,16 @@ export default function AdminPage({
       console.error(error);
     }
   };
+
+  useEffect(()=>{
+    getProducts();
+  },[])
   return (
     <div className="container">
       <div className="row mt-5">
         <ProductsTable
           products={products}
-          checkLogin={checkLogin}
+          // checkLogin={checkLogin}
           pagination={pagination}
           getProducts={getProducts}
           onUpdateProduct={handleUpdateProduct}

@@ -7,6 +7,7 @@ import Cart from "./pages/front/Cart";
 import NotFound from "./pages/front/NotFound";
 import Checkout from "./pages/front/CheckOut";
 import LoginPage from "./pages/LoginPage";
+import AdminPage from "./pages/AdminPage";
 
 //路由表
 export const router = createHashRouter([
@@ -44,4 +45,8 @@ export const router = createHashRouter([
     path: "*",
     element: <NotFound />,
   },
+  {
+    path: "/admin",
+    element: <AdminPage/>
+  }
 ]);
